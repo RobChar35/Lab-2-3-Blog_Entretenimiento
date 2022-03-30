@@ -8,3 +8,6 @@
 
 #Ignorar audio
 *.mp3
+
+#JSON 
+*.json
