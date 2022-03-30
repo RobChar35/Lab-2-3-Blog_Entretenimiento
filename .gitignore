@@ -1,0 +1,10 @@
+#Ignorar imagenes
+*.jpg
+*.png
+*.jpeg
+
+#Ignorar videos
+*.mp4
+
+#Ignorar audio
+*.mp3
