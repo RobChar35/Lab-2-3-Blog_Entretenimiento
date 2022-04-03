@@ -8,7 +8,7 @@
 body {
     background: linear-gradient(45deg, #ece1b4, #F3E5AB, #ADD8E6, #FFFFFF);
     background-size: 400% 400%;
-    font-family: Centhury Gothic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     animation: cambiar 6s ease-in-out infinite;
 	height: 100vh;
     width: 100vw;
@@ -44,12 +44,13 @@ header{
 	border-bottom-width: 6px;	 
 }
 
+/*
 #encabezado{
 	width: 70%;
 	height: 30px;
 	margin: auto;
 	border: 5px solid #0000;
-}
+}*/
 
 #logo{
 	width: 35%;
@@ -58,10 +59,11 @@ header{
 	float: left;
 	color: #fff;
 	font-size: 35px;
-	margin-top: 55px;
+	margin: 55px 0px 0px 30px;
 }
 #menu{
-	width: auto;
+	padding-top: 10px;
+	width: 50%;
 	height: auto;
 	float: right;
 	border: 0px solid;

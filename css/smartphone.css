@@ -1,16 +1,9 @@
-@media screen and (min-width:280px) and (max-width:560px) {
-    #sidebar{
-        float: none;
-        width: 0;
-        border: 0px;
-        height: 0; 
-        margin-top: 0px;
+@media screen and (max-width:650px) {
+    section #sidebar{
+        display: none;
     }
     
     #buscar, #categorias, #sitios-amigos, #ultimos-post{
-        border-radius: 0;
-        width: 0%;
-        border: none;
-        height: 0px; 
+        display: none;
     }
 }
