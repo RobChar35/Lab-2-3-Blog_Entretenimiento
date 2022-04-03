@@ -1,0 +1,49 @@
+@media only screen and (max-device-width:650px) {
+    header{
+        height: 150px;
+        margin-bottom: 50px;
+    }
+
+    header #menu{
+        margin-top: 90px;
+    }
+
+    header #logo{
+        margin-top: 90px;
+    }
+
+    #principal{
+        margin-left: 110px;            
+    }
+
+    #publicaciones{
+        width: auto;
+    }
+
+    #publicaciones .post{
+        margin-bottom: 40px;
+        height: auto;
+    }
+
+    #publicaciones .enlace-post .titulo-post{
+        font-size: 35px;
+    }
+
+    #publicaciones p .datos-publicaciones{
+        font-size: 20px;
+    }
+
+    #publicaciones .leer-mas, #publicaciones .num-comentarios{
+        font-size: 20px;
+    }
+
+    #publicaciones .parrafo-post{
+        font-size: 25px;
+        margin-bottom: 40px;
+    }
+
+    section #sidebar{
+        display: none;
+    }
+    
+}
