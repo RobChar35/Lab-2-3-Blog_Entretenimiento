@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+	include('php/sql_connector.php');
+?>
 <head>
 	
 	
