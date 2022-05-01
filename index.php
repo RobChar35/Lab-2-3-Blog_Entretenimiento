@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
 <?php
-	include('php/sql_connector.php');
+	include("sql_connector.php");
+
+	#Menu
+	$sql_menu = "SELECT * FROM menu";
 ?>
+<html lang="es">
 <head>
-	
-	
 	<meta charset="UTF-8">
     	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -26,11 +27,19 @@
 
 	    	<div id="menu" >
 	    		<ul>
+					<?php
+						$resultado = mysqli_query($conn, $sql_menu);
+						while($filas_menu = mysqli_fetch_assoc($resultado)){
+							echo "<li><a href=".$filas_menu["menulink"]." class=".$filas_menu["menuclass"].">".$filas_menu["tabs"]."</a></li>";
+						}
+					?>
+					<!--
 	    			<li><a href="" class="active-menu">Home</a></li>
 	    			<li><a href="html/Peliculreseña1.html" class="enlace">Peliculas</a></li>
 	    			<li><a href="html/videojuegos.html" class="enlace">Videojuegos</a></li>
 	    			<li><a href="html/Musica.html" class="enlace">Musica</a></li>
-	    		</ul>
+					-->	
+				</ul>
 	    	</div> 
 	    <!--</div>-->
 	      <!--EFECTO BURBUJA-->
