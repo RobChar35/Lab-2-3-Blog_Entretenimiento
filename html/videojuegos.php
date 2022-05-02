@@ -201,11 +201,7 @@
 					}
 						
 					?>
-				<!--<a href="https://www.meetme.com/#home" class="enlace-sidebar">MeetMe</a>
-				<a href="https://www.skout.com/" class="enlace-sidebar">Skout</a>
-				<a href="https://bumble.com/es/" class="enlace-sidebar">Bumble</a>
-				<a href="https://ablo.live/#/landing/getstarted" class="enlace-sidebar">Ablo</a>
-				<a href="https://www.yubo.live/es/" class="enlace-sidebar">Yubo</a>-->
+
 			</section>
 
 			<section id="sitios-amigos">
@@ -218,20 +214,7 @@
 					}
 						
 					?>
-				<!--<a href="https://www.revistadyna.com/Articulos/Ficha.aspx?idMenu=a5c9d895-28e0-4f92-b0c2-c0f86f2a940b&Cod=10180&codigoacceso=d03d7770-1e26-48ff-914b-cb11691baf08" class="enlace-sidebar"class="enlace-sidebar">
-					<h4>ANÁLISIS DEL CONTROL CLIMÁTICO EN UN INVERNADERO DE ROTACIÓN DE CULTIVOS</h4>
-					<p>El desarrollo de políticas energéticas para reducir el consumo de energía y el impacto ambiental y la importancia del sector agrícola con sus industrias asociadas en regiones, como Extremadura, con la mayor parte de la producción agrícola mediante cultivo tradicional, hace que sea interesante el aprovechamiento de terrenos naturalmente no aptos para el cultivo, así como mejorar la productividad gracias al control climático mediante energías renovables en invernaderos, ayudando a los agricultores a obtener productos competitivos. </p>
-				</a>
-
-				<a href="https://www.revistadyna.com/Articulos/Ficha.aspx?idMenu=a5c9d895-28e0-4f92-b0c2-c0f86f2a940b&Cod=10212&codigoacceso=030d460c-212e-431f-a5a4-5c4790ddbd28" class="enlace-sidebar"class="enlace-sidebar">
-					<h4>BIOPLÁSTICO ELABORADO DE CÁSCARAS DE NARANJA</h4>
-					<p>Este estudio usa los desperdicios de las cáscaras de naranja para crear un biopolímero que puede ser utilizado para distintos propósitos. Para lograr esto, se evaluaron diferentes tecnologías en el proceso de obtención del biopolímero tratando de hacer un proceso lo más amigable con el medio ambiente.</p>
-				</a>
-				
-				<a href="https://www.revistadyna.com/Articulos/Ficha.aspx?idMenu=a5c9d895-28e0-4f92-b0c2-c0f86f2a940b&Cod=9969&codigoacceso=074ad059-03a3-4c42-9cc3-5c47d1083b76" class="enlace-sidebar"class="enlace-sidebar">
-					<h4>REALMENTE ¿QUÉ APRENDE EL ALUMNADO DE PRIMER CURSO DE INGENIERÍA?</h4>
-					<p>Hace décadas que el foco de la educación ha pasado de la enseñanza al aprendizaje, es decir el foco principal son las necesidades y habilidades del alumnado que aprende, y no está en el/la docente que enseña</p>
-				</a>-->
+			
 			</section>
 
 		</section>

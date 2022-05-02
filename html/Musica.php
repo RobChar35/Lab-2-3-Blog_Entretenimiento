@@ -92,65 +92,6 @@
 						</article>
                 <?php } ?>
 
-				<!--
-				<article class="post">
-
-					<a href="PostMusica1.php" class="enlace-post"></h2>
-						<h2 class="titulo-post">Fiscalía de Colombia difunde análisis toxicológico de Taylor Hawkins, dice que se hallaron 10 tipos de sustancias</h2>
-					</a>
-					<img src="https://www.milenio.com/uploads/media/2022/03/25/taylor-hawkins.jpg" class="img-post">
-					<p>
-						<strong>Por:</strong><span class="datos-publicaciones"> Ilse Borrero</span>
-						&nbsp; &nbsp; 
-						<strong>Fecha: </strong><span class="datos-publicaciones">27 de marzo del 2022</span>
-					</p>
-					<p class="parrafo-post">
-						El primer reporte preliminar de la Fiscalía de Colombia, con base en los primeros estudios forenses, dice que se encontraron 10 tipos de sustancias en la orina de Taylor Hawkins, baterista de Foo Fighters fallecido este viernes en Bogotá antes de un concierto. El reporte dice que la prueba toxicológica reveló la presencia de marihuana, benzodiazepina, opioides y también antidepresivos tricíclicos.
-					</p>
-
-					<a href="PostMusica1.php" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
-					<span class="num-comentarios">20 comentarios</span> 
-				</article>
-
-				<article class="post">
-
-					<a href="PostMusica2.php" class="enlace-post"></h2>
-						<h2 class="titulo-post">Red Hot Chili Peppers comparte su nueva canción “Not the One”</h2>
-					</a>
-					<img src="https://garajedelrock.com/wp-content/uploads/2022/03/red-hot-chili-peppers-not-the-one.jpg" class="img-post">
-					<p>
-						<strong>Por:</strong><span class="datos-publicaciones"> Omar Obando</span>
-						&nbsp; &nbsp; 
-						<strong>Fecha: </strong><span class="datos-publicaciones">24 de marzo del 2022</span>
-					</p>
-					<p class="parrafo-post">
-						Red Hot Chili Peppers, banda liderada por Anthony Kiedis, liberó una nueva canción de su próximo álbum ‘Unlimited Love‘. Puedes escuchar “Not the One” más adelante, que es el tercer sencillo en ser lanzado del disco.
-					</p>
-
-					<a href="PostMusica2.php" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
-					<span class="num-comentarios">14 comentarios</span> 
-				</article>
-
-				<article class="post">
-
-					<a href="" class="enlace-post"></h2>
-						<h2 class="titulo-post">La Habana elegante de Ernán López-Nussa y Felipe Dulzaides</h2>
-					</a>
-					<img src="https://imagenes.elpais.com/resizer/ev-EYkx-eZmdkBlRnS2Y6aE_Lgo=/1960x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/HOQLV2O5NFAI3F6O2VFED3JHCU.jpg" class="img-post">
-					<p>
-						<strong>Por:</strong><span class="datos-publicaciones"> Mauricio Vicent</span>
-						&nbsp; &nbsp; 
-						<strong>Fecha: </strong><span class="datos-publicaciones">23 de marzo del 2022</span>
-					</p>
-					<p class="parrafo-post">
-						Cuando Benny Moré o Celia Cruz daban sus primeros pasos y las noches de la capital cubana aún no sospechaban de la revolución de Fidel Castro, un pianista que confesaba no saber leer música marcó época en el jazz de la isla
-					</p>
-
-					<a href="" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
-					<span class="num-comentarios">12 comentarios</span> 
-				</article>
-					-->		
-
 				<div id="paginacion" style="text-align:center">
 					<p>Anteriores publicaciones &nbsp; &nbsp; <a href="https://cnnespanol.cnn.com/seccion/mundo/"class="enlace-paginacion">
 					Siguientes publicaciones</a></p><br>
