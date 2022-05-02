@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<?php
+	include("sql_connector.php");
+	#Menu
+	$sql_menu = "SELECT * FROM menu_htmldir";
+
+	#categorias
+	$sql_categoria = "SELECT * FROM categorias";
+	$sql_categoria1 = "SELECT * FROM redireccion";
+
+	#motivacion
+	
+	$sql_motivacion1= "SELECT *FROM texto WHERE idTexto=1";
+	$sql_motivacion2= "SELECT *FROM links WHERE idLinks=1";
+	$sql_motivacion3= "SELECT *FROM opciones";
+	$sql_motivacion4= "SELECT *FROM links WHERE idLinks=2";
+
+	#publicidad
+	$sql_publicidad="SELECT * FROM publicidad";
+	$sql_sitios_amigos="SELECT * FROM sitios_amigos";
+	
+?>
 <html>
 <head>
 	<title>Mi Blog</title>
@@ -31,10 +52,12 @@
 
 	    	<div id="menu" >
 	    		<ul>
-	    			<li><a href="../index.html" class="active-menu">Home</a></li>
-	    			<li><a href="Peliculreseña1.html" class="enlace">Peliculas</a></li>
-	    			<li><a href="videojuegos.html" class="enlace">Videojuegos</a></li>
-	    			<li><a href="Musica.html" class="enlace">Musica</a></li>
+					<?php
+						$resultado = mysqli_query($conn, $sql_menu);
+						while($filas_menu = mysqli_fetch_assoc($resultado)){
+							echo "<li><a href=".$filas_menu["menu_hdLink"]." class=".$filas_menu["menu_hdClass"].">".$filas_menu["menu_hdTabs"]."</a></li>";
+						}
+					?>
 	    		</ul>
 	    	</div> 
 	     <!--EFECTO BURBUJA-->
@@ -113,34 +136,69 @@
 			<section id="buscar">
 				<h2 class="encabezado-sidebar">Buscar</h2>
 				<form>
-					<input type="text" name="buscar" placeholder="buscar">
-					<button class="boton">Ok</button>
-				</form> 
+					<input type="text" name="busqueda"  placeholder="¿Qué deseas buscar?">
+					<button class="boton" name="enviar" value="Buscar">Ok</button>
+				</form>
+				<?php
+				
+				if (isset($_GET['enviar'])){
+				   $busqueda = $_GET['busqueda'];
+				   
+				   $sql_buscador = "SELECT * FROM busqueda_redireccion WHERE enlaces LIKE '%$busqueda%'";
+				   $res_bus2 =mysqli_query($conn, $sql_buscador);
+
+				   if ($filas_busqueda_re = mysqli_fetch_assoc($res_bus2)){
+						echo '<a href='.'"'.$filas_busqueda_re['enlaces'].'" class="enlace-sidebar">Click aqui</a>';
+				   }
+			   } 
+			   
+			   ?> 
 			</section>
 
 			<section id="categorias">
 				<h2 class="encabezado-sidebar">Categorias</h2>
-				<a href="" class="enlace-sidebar">Peliculas</a>
-				<a href="videojuegos.html" class="enlace-sidebar">Videojuegos</a>
-				<a href="Musica.html" class="enlace-sidebar">Musica</a>
+
+				<?php
+				
+				$res_bus = mysqli_query($conn, $sql_categoria);
+
+				$res_bus1 = mysqli_query($conn, $sql_categoria1);
+
+				while(($filas_categoria = mysqli_fetch_assoc($res_bus)) && ($filas_redireccion = mysqli_fetch_assoc($res_bus1)) ){
+
+					echo '<a href='.'"'.$filas_redireccion['enlaces'].'"'.'class="enlace-sidebar">'.$filas_categoria['contenido'].'</a>';
+
+				}
+				
+				?>
 			</section>
 
 			<section id="sitios-amigos">
 				<h2 class="encabezado-sidebar">Sitios Amigos</h2>
-				<a href="https://www.meetme.com/#home" class="enlace-sidebar">MeetMe</a>
+				<?php
+					$result = mysqli_query($conn, $sql_sitios_amigos);
+					while($filas_sitios_amigos= mysqli_fetch_assoc($result)){
+						echo "<a href=".$filas_sitios_amigos["link"]." class=".$filas_sitios_amigos["class_sitios"].">".$filas_sitios_amigos["name"]."</a>";
+					}
+						
+					?>
+				<!--<a href="https://www.meetme.com/#home" class="enlace-sidebar">MeetMe</a>
 				<a href="https://www.skout.com/" class="enlace-sidebar">Skout</a>
 				<a href="https://bumble.com/es/" class="enlace-sidebar">Bumble</a>
 				<a href="https://ablo.live/#/landing/getstarted" class="enlace-sidebar">Ablo</a>
-				<a href="https://www.yubo.live/es/" class="enlace-sidebar">Yubo</a>
+				<a href="https://www.yubo.live/es/" class="enlace-sidebar">Yubo</a>-->
 			</section>
 
 			<section id="sitios-amigos">
 				<h2 class="encabezado-sidebar">Publicidad</h2>
-				<a href="https://rpp.pe/futbol/seleccion-peruana/polemica-gol-peru-vs-uruguay-hubo-manipulacion-del-var-pelota-si-entro-por-completo-dijo-el-inventor-de-tecnologia-eliminatorias-qatar-2022-noticia-1395279">
-					<h4>Sobre la polémica del Perú vs. Uruguay: "Hubo manipulación del VAR, la pelota sí entró por completo"</h4>
-					<p>El español Antonio Ibáñez de Alba, quien afirma ser el inventor de la tecnología del VAR, se pronunció respecto a esta jugada y resaltó que, a pesar de los audios y videos difundidos por la Conmebol, los registros “son manipulables”.</p><br>
-					<img src="../img/polemica.jpg" lass="img-post3">
-				</a>
+				<?php
+					$result = mysqli_query($conn, $sql_publicidad);
+					while($filas_publicidad = mysqli_fetch_assoc($result)){
+						echo "<a href=".$filas_publicidad["link"]." class=".$filas_publicidad["publicidad_class"].">".
+						"<h4>".$filas_publicidad["titulo"]."</h4> <p>".$filas_publicidad["subitulo"]."</p></a>";
+					}
+						
+					?>
 			</section>
 
 		</section>

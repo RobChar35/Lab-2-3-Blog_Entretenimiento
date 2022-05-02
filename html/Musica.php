@@ -1,5 +1,26 @@
 <!DOCTYPE html>
 <html>
+<?php
+	include("../sql_connector.php");
+	#Menu
+	$sql_menu = "SELECT * FROM menu_htmldir";
+
+	#categorias
+	$sql_categoria = "SELECT * FROM categorias";
+	$sql_categoria1 = "SELECT * FROM redireccion";
+	
+	#motivacion
+	
+	$sql_motivacion1= "SELECT *FROM texto WHERE idTexto=1";
+	$sql_motivacion2= "SELECT *FROM links WHERE idLinks=1";
+	$sql_motivacion3= "SELECT *FROM opciones";
+	$sql_motivacion4= "SELECT *FROM links WHERE idLinks=2";
+	
+	#publicidad
+	$sql_publicidad="SELECT * FROM publicidad";
+	$sql_sitios_amigos="SELECT * FROM sitios_amigos";
+	?>
+
 <head>
 	<title>Mi Blog</title>
 	<meta charset="utf-8">
@@ -21,10 +42,12 @@
 
 	    	<div id="menu" >
 	    		<ul>
-	    			<li><a href="../index.html" class="active-menu">Home</a></li>
-	    			<li><a href="Peliculreseña1.html" class="enlace">Peliculas</a></li>
-	    			<li><a href="videojuegos.html" class="enlace">Videojuegos</a></li>
-	    			<li><a href="" class="enlace">Musica</a></li>
+					<?php
+						$resultado = mysqli_query($conn, $sql_menu);
+						while($filas_menu = mysqli_fetch_assoc($resultado)){
+							echo "<li><a href=".$filas_menu["menu_hdLink"]." class=".$filas_menu["menu_hdClass"].">".$filas_menu["menu_hdTabs"]."</a></li>";
+						}
+					?>
 	    		</ul>
 	    	</div>
 	      <!--EFECTO BURBUJA-->
@@ -44,10 +67,35 @@
 
 	<section id="principal">
 		<section id="publicaciones">
+		<?php 
+			$sql_publicaciones="SELECT *FROM publicaciones WHERE idpublicaciones > 10";
+					$resultado=mysqli_query($conn,$sql_publicaciones);
+                	while($publicaciones=mysqli_fetch_assoc($resultado)){ ?>
+						<article class="post">
+						
+						
+							<a href="<?php echo $publicaciones['LinkTitulo']?>" class="enlace-post"></h2>
+								<h2 class="titulo-post"><?php echo $publicaciones['Titulo']?></h2>
+							</a>
+							<img src="<?php echo $publicaciones['LinkImagen']?>" class="img-post">
+							<p>
+								<strong>Por: </strong><span class="datos-publicaciones"><?php echo $publicaciones['Autor']?></span>
+								&nbsp; &nbsp; 
+								<strong>Fecha: </strong><span class="datos-publicaciones"><?php echo $publicaciones['Fecha']?></span>
+							</p>
+							<p class="parrafo-post">
+							<?php echo $publicaciones['Parrafo']?>
+							</p>
 
+							<a href="<?php echo $publicaciones['LinkLeerMas']?>" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
+							<span class="num-comentarios"><?php echo $publicaciones['Numero de comentarios']." comentarios"?></span> 
+						</article>
+                <?php } ?>
+
+				<!--
 				<article class="post">
 
-					<a href="PostMusica1.html" class="enlace-post"></h2>
+					<a href="PostMusica1.php" class="enlace-post"></h2>
 						<h2 class="titulo-post">Fiscalía de Colombia difunde análisis toxicológico de Taylor Hawkins, dice que se hallaron 10 tipos de sustancias</h2>
 					</a>
 					<img src="https://www.milenio.com/uploads/media/2022/03/25/taylor-hawkins.jpg" class="img-post">
@@ -60,13 +108,13 @@
 						El primer reporte preliminar de la Fiscalía de Colombia, con base en los primeros estudios forenses, dice que se encontraron 10 tipos de sustancias en la orina de Taylor Hawkins, baterista de Foo Fighters fallecido este viernes en Bogotá antes de un concierto. El reporte dice que la prueba toxicológica reveló la presencia de marihuana, benzodiazepina, opioides y también antidepresivos tricíclicos.
 					</p>
 
-					<a href="PostMusica1.html" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
+					<a href="PostMusica1.php" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
 					<span class="num-comentarios">20 comentarios</span> 
 				</article>
 
 				<article class="post">
 
-					<a href="PostMusica2.html" class="enlace-post"></h2>
+					<a href="PostMusica2.php" class="enlace-post"></h2>
 						<h2 class="titulo-post">Red Hot Chili Peppers comparte su nueva canción “Not the One”</h2>
 					</a>
 					<img src="https://garajedelrock.com/wp-content/uploads/2022/03/red-hot-chili-peppers-not-the-one.jpg" class="img-post">
@@ -79,7 +127,7 @@
 						Red Hot Chili Peppers, banda liderada por Anthony Kiedis, liberó una nueva canción de su próximo álbum ‘Unlimited Love‘. Puedes escuchar “Not the One” más adelante, que es el tercer sencillo en ser lanzado del disco.
 					</p>
 
-					<a href="PostMusica2.html" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
+					<a href="PostMusica2.php" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
 					<span class="num-comentarios">14 comentarios</span> 
 				</article>
 
@@ -101,24 +149,38 @@
 					<a href="" class="leer-mas">Leer mas...</a>&nbsp; &nbsp;
 					<span class="num-comentarios">12 comentarios</span> 
 				</article>
-
+					-->		
 
 				<div id="paginacion" style="text-align:center">
 					<p>Anteriores publicaciones &nbsp; &nbsp; <a href="https://cnnespanol.cnn.com/seccion/mundo/"class="enlace-paginacion">
 					Siguientes publicaciones</a></p><br>
-					<p><h1>"Motivacion del dia de hoy"</h1></p>
-					<!--emoticon-->
-					<p>&#128512;</p><br>
-						<button onclick="playPause()">Reproducir/Pausar</button> 
-						<button onclick="makeBig()">Grande</button>
-						<button onclick="makeSmall()">Pequeño</button>
-						<button onclick="makeNormal()">Normal</button>
+					<?php 
+						
+						$resultado1=mysqli_query($conn,$sql_motivacion1);
+						$texto=mysqli_fetch_assoc($resultado1);
+					?>
+					<p><h1><?php echo $texto['texto'] ?></h1></p>
+					<!--GIF-->
+					<?php
+						$resultado2=mysqli_query($conn,$sql_motivacion2);
+						$gif=mysqli_fetch_assoc($resultado2);
+					?>
+					<p><img class="gif" src="<?php echo $gif['Links']?>" alt=""></p>
+					<img></img>div>
+					<?php
+						$resultado3=mysqli_query($conn,$sql_motivacion3);
+						
+						while($opciones=mysqli_fetch_assoc($resultado3)){ ?>
+							<button onclick="<?php echo $opciones['Funciones'] ?>"><?php echo $opciones['Opciones']?></button>
+						<?php } ?>
 					<br><br>
-					<video id="video1" width="420" autoplay muted controls="">
-				    	<source src="../video/movie.mp4" type="video/mp4">
-				    	<source src="../video/movie.ogg" type="video/ogg">
-				    	Su navegador no es compatible con video HTML.
-  					</video>
+					<!--VIDEO-->
+					<?php
+						$resultado4=mysqli_query($conn,$sql_motivacion4);
+						$video=mysqli_fetch_assoc($resultado4);
+					?>
+
+				    	<?php echo $video['Link']?>
 				</div>
 					<script> 
 					var myVideo = document.getElementById("video1"); 
@@ -149,30 +211,70 @@
 			<section id="buscar">
 				<h2 class="encabezado-sidebar">Buscar</h2>
 				<form>
-					<input type="text" name="buscar" placeholder="buscar">
-					<button class="boton">ok</button>
-				</form> 
+					<input type="text" name="busqueda" placeholder="¿Qué deseas buscar?">
+					<button class="boton" name="enviar" value="Buscar">ok</button>
+				</form>
+				<?php
+				
+				if (isset($_GET['enviar'])){
+				   $busqueda = $_GET['busqueda'];
+				   
+				   $sql_buscador = "SELECT * FROM busqueda_redireccion WHERE enlaces LIKE '%$busqueda%'";
+				   $res_bus2 =mysqli_query($conn, $sql_buscador);
+
+				   if ($filas_busqueda_re = mysqli_fetch_assoc($res_bus2)){
+						echo '<a href='.'"'.$filas_busqueda_re['enlaces'].'" class="enlace-sidebar">Click aqui</a>';
+				   }
+			   } 
+			   
+			   ?>
+
 			</section>
 
 			<section id="categorias">
 				<h2 class="encabezado-sidebar">Categorias</h2>
-				<a href="" class="enlace-sidebar">Peliculas</a>
-				<a href="videojuegos.html" class="enlace-sidebar">Videojuegos</a>
-				<a href="Musica.html" class="enlace-sidebar">Musica</a>
+				<?php
+				
+				$res_bus = mysqli_query($conn, $sql_categoria);
+
+				$res_bus1 = mysqli_query($conn, $sql_categoria1);
+
+				while(($filas_categoria = mysqli_fetch_assoc($res_bus)) && ($filas_redireccion = mysqli_fetch_assoc($res_bus1)) ){
+
+					echo '<a href='.'"'.$filas_redireccion['enlaces'].'"'.'class="enlace-sidebar">'.$filas_categoria['contenido'].'</a>';
+
+				}
+				
+				?>
 			</section>
 
 			<section id="sitios-amigos">
 				<h2 class="encabezado-sidebar">Sitios Amigos</h2>
-				<a href="https://www.meetme.com/#home" class="enlace-sidebar">MeetMe</a>
+				<?php
+					$result = mysqli_query($conn, $sql_sitios_amigos);
+					while($filas_sitios_amigos= mysqli_fetch_assoc($result)){
+						echo "<a href=".$filas_sitios_amigos["link"]." class=".$filas_sitios_amigos["class_sitios"].">".$filas_sitios_amigos["name"]."</a>";
+					}
+						
+					?>
+				<!--<a href="https://www.meetme.com/#home" class="enlace-sidebar">MeetMe</a>
 				<a href="https://www.skout.com/" class="enlace-sidebar">Skout</a>
 				<a href="https://bumble.com/es/" class="enlace-sidebar">Bumble</a>
 				<a href="https://ablo.live/#/landing/getstarted" class="enlace-sidebar">Ablo</a>
-				<a href="https://www.yubo.live/es/" class="enlace-sidebar">Yubo</a>
+				<a href="https://www.yubo.live/es/" class="enlace-sidebar">Yubo</a>-->
 			</section>
 
 			<section id="sitios-amigos">
 				<h2 class="encabezado-sidebar">Publicidad</h2>
-				<a href="https://www.revistadyna.com/Articulos/Ficha.aspx?idMenu=a5c9d895-28e0-4f92-b0c2-c0f86f2a940b&Cod=10180&codigoacceso=d03d7770-1e26-48ff-914b-cb11691baf08" class="enlace-sidebar"class="enlace-sidebar">
+				<?php
+					$result = mysqli_query($conn, $sql_publicidad);
+					while($filas_publicidad = mysqli_fetch_assoc($result)){
+						echo "<a href=".$filas_publicidad["link"]." class=".$filas_publicidad["publicidad_class"].">".
+						"<h4>".$filas_publicidad["titulo"]."</h4> <p>".$filas_publicidad["subitulo"]."</p></a>";
+					}
+						
+					?>
+				<!--<a href="https://www.revistadyna.com/Articulos/Ficha.aspx?idMenu=a5c9d895-28e0-4f92-b0c2-c0f86f2a940b&Cod=10180&codigoacceso=d03d7770-1e26-48ff-914b-cb11691baf08" class="enlace-sidebar"class="enlace-sidebar">
 					<h4>ANÁLISIS DEL CONTROL CLIMÁTICO EN UN INVERNADERO DE ROTACIÓN DE CULTIVOS</h4>
 					<p>El desarrollo de políticas energéticas para reducir el consumo de energía y el impacto ambiental y la importancia del sector agrícola con sus industrias asociadas en regiones, como Extremadura, con la mayor parte de la producción agrícola mediante cultivo tradicional, hace que sea interesante el aprovechamiento de terrenos naturalmente no aptos para el cultivo, así como mejorar la productividad gracias al control climático mediante energías renovables en invernaderos, ayudando a los agricultores a obtener productos competitivos. </p>
 				</a>
@@ -185,7 +287,7 @@
 				<a href="https://www.revistadyna.com/Articulos/Ficha.aspx?idMenu=a5c9d895-28e0-4f92-b0c2-c0f86f2a940b&Cod=9969&codigoacceso=074ad059-03a3-4c42-9cc3-5c47d1083b76" class="enlace-sidebar"class="enlace-sidebar">
 					<h4>REALMENTE ¿QUÉ APRENDE EL ALUMNADO DE PRIMER CURSO DE INGENIERÍA?</h4>
 					<p>Hace décadas que el foco de la educación ha pasado de la enseñanza al aprendizaje, es decir el foco principal son las necesidades y habilidades del alumnado que aprende, y no está en el/la docente que enseña</p>
-				</a>
+				</a>-->
 
 			</section>
 
