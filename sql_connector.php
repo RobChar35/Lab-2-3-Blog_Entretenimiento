@@ -2,8 +2,8 @@
     #$xc = mysqli_connect("localhost", "root", "databas3$forEverybody", "blog_entretenimiento");
     $serverName = "localhost";
     $userName = "root";
-    $password = 'databas3$forEverybody';
-    $dbName = "blog_entretenimiento";
+    $password = "root";
+    $dbName = "database_test";
 
     /*
     try {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 	include("sql_connector.php");
+
 	#Menu
 	$sql_menu = "SELECT * FROM menu";
 
@@ -22,7 +23,7 @@
 	#publicaciones
 	$sql_publicaciones="SELECT *FROM publicaciones;"
 
-	?>
+?>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
@@ -53,6 +54,7 @@
 					?>
 				</ul>
 	    	</div> 
+			<a href="./logout.php" class="logout">Cerrar sesion</a>
 	    <!--</div>-->
 	      <!--EFECTO BURBUJA-->
 	    <div class="burbujas">

@@ -44,6 +44,13 @@ header{
 	border-bottom-width: 6px;	 
 }
 
+.header .logout{
+	text-decoration: none;
+	background: red;
+	color: #fff;
+	border-radius: 5px 5px 0px 0px;
+}
+
 /*
 #encabezado{
 	width: 70%;
@@ -81,6 +88,7 @@ header{
 	padding: 15px;
 	font-size: 20px;
 }
+
 #menu ul li .enlace:hover{
 	background: #585858;
 	color: #fff;
